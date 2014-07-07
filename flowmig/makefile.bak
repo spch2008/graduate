@@ -1,0 +1,44 @@
+CFLAGSS='-g'
+
+OBJS=flow.o Dijkstra.o Edge.o FlowMig.o Graph.o OrmPV.o \
+PathRecord.o PhyM.o Vertex.o VirM.o
+
+all:$(OBJS)
+	g++ -g -o flow $(OBJS)
+
+flow.o:flow.cpp
+	g++ -g -o flow.o -c flow.cpp
+  
+Dijkstra.o:Dijkstra.cpp
+	g++ -g -o Dijkstra.o -c Dijkstra.cpp
+    
+Edge.o:Edge.cpp Edge.h
+	g++ -g -o Edge.o -c Edge.cpp
+    
+FlowMig.o:FlowMig.cpp FlowMig.h
+	g++ -g -o FlowMig.o -c FlowMig.cpp
+
+Graph.o:Graph.cpp Graph.h
+	g++ -g -o Graph.o -c Graph.cpp
+    
+OrmPV.o:OrmPV.cpp OrmPV.h
+	g++ -g -o OrmPV.o -c OrmPV.cpp
+
+PathRecord.o:PathRecord.cpp
+	g++ -g -o PathRecord.o -c PathRecord.cpp
+    
+PhyM.o:PhyM.cpp PhyM.h
+	g++ -g -o PhyM.o -c PhyM.cpp
+
+Vertex.o:Vertex.cpp Vertex.h
+	g++ -g -o Vertex.o -c Vertex.cpp
+
+VirM.o:VirM.cpp VirM.h
+	g++ -g -o VirM.o -c VirM.cpp
+
+install:
+	ln -s flow /usr/bin/flow
+    
+clean:
+	rm -rf flow *.o
+    
